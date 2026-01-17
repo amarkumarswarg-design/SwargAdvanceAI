@@ -2,24 +2,23 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Swarg-Core Ultimate | Developed by Amar Kumar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Swarg-Core God Mode | Amar Kumar</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@700&display=swap" rel="stylesheet">
     
     <style>
-        /* ================================================
-           1. MASTER CSS CONFIGURATION (PREMIUM UI)
-           ================================================
-        */
+        /* --- 1. CSS MASTER RESET & THEME --- */
         :root {
-            --neon-blue: #00f3ff;
-            --deep-dark: #020205;
-            --gold: #ffcc00;
-            --glass: rgba(255, 255, 255, 0.05);
-            --blue-tick: #1da1f2;
-            --ai-glow: #00f3ff;
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --bg-deep: #000000;
+            --card-bg: #121212;
+            --neon-blue: #00e5ff;
+            --gold: #ffc400;
+            --user-bubble: linear-gradient(135deg, #00b4db, #0083b0);
+            --ai-bubble: #1e1e1e;
+            --text-main: #ffffff;
+            --text-dim: #b0b0b0;
+            --blue-tick: #1d9bf0;
         }
 
         * {
@@ -29,310 +28,320 @@
         }
 
         body, html {
-            height: 100vh; width: 100vw;
-            background: var(--deep-dark);
-            color: #ffffff;
-            font-family: 'Rajdhani', sans-serif;
+            height: 100%; width: 100%;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
             overflow: hidden;
             display: flex;
             flex-direction: column;
         }
 
-        /* --- DEVELOPER HEADER (BLUE TICK) --- */
+        /* --- 2. PREMIUM HEADER (AMAR KUMAR BRANDING) --- */
         .header {
-            position: fixed; top: 0; width: 100%; height: 70px;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(25px);
-            border-bottom: 2px solid var(--neon-blue);
-            display: flex; align-items: center; justify-content: center;
+            width: 100%;
+            padding: 15px 20px;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             z-index: 1000;
-            box-shadow: 0 4px 30px rgba(0, 243, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
 
-        .dev-brand {
+        .dev-info {
+            display: flex;
+            align-items: center;
             font-family: 'Orbitron', sans-serif;
-            font-weight: 700; color: var(--gold);
-            letter-spacing: 2px; font-size: 1.1rem;
-            display: flex; align-items: center;
-            text-transform: uppercase;
+            color: var(--gold);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
         }
 
-        .verified-badge {
-            margin-left: 10px; width: 22px; height: 22px;
-            background: var(--blue-tick); border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 12px; color: white;
-            box-shadow: 0 0 15px var(--blue-tick);
-            animation: tick-pulse 2s infinite ease-in-out;
-        }
-
-        @keyframes tick-pulse {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.8; box-shadow: 0 0 25px var(--blue-tick); }
-        }
-
-        /* --- AI NEURAL VISUALIZER --- */
-        .visual-stage {
-            height: 30%; display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            padding-top: 80px; position: relative;
-        }
-
-        .neural-orb {
-            width: 120px; height: 120px;
-            background: radial-gradient(circle, var(--ai-glow), #000);
-            border-radius: 50%; position: relative;
-            box-shadow: 0 0 60px var(--ai-glow);
-            transition: var(--transition);
-        }
-
-        .outer-ring {
-            position: absolute; inset: -15px;
-            border: 1px solid rgba(0, 243, 255, 0.2);
+        .blue-tick {
+            margin-left: 8px;
+            width: 18px;
+            height: 18px;
+            background: var(--blue-tick);
             border-radius: 50%;
-            animation: rotate-ring 6s linear infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: white;
+            box-shadow: 0 0 10px var(--blue-tick);
         }
 
-        @keyframes rotate-ring { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-        /* --- CHAT ENGINE LAYOUT --- */
-        #chat-window {
-            flex: 1; overflow-y: auto;
-            padding: 20px 15px;
-            display: flex; flex-direction: column; gap: 18px;
-            scroll-behavior: smooth;
-            mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+        /* --- 3. DYNAMIC CHAT WINDOW --- */
+        #chat-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: radial-gradient(circle at top, #1a1a1a 0%, #000000 100%);
         }
 
-        #chat-window::-webkit-scrollbar { display: none; }
+        #chat-container::-webkit-scrollbar { display: none; }
 
-        .bubble {
-            max-width: 85%; padding: 15px 22px;
-            border-radius: 25px; font-size: 1.15rem;
-            line-height: 1.5; position: relative;
-            animation: slide-up 0.5s ease;
+        .msg {
+            max-width: 85%;
+            padding: 12px 18px;
+            border-radius: 20px;
+            font-size: 1rem;
+            line-height: 1.5;
+            position: relative;
+            animation: fadeIn 0.3s ease;
         }
 
-        @keyframes slide-up { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-        .ai-message {
-            background: var(--glass);
-            border: 1px solid rgba(0, 243, 255, 0.15);
+        .ai-msg {
+            background: var(--ai-bubble);
             align-self: flex-start;
-            border-bottom-left-radius: 5px;
-            box-shadow: 10px 10px 25px rgba(0,0,0,0.4);
+            border-bottom-left-radius: 2px;
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .user-message {
-            background: linear-gradient(135deg, var(--neon-blue), #0072ff);
-            color: #000; font-weight: 700;
+        .user-msg {
+            background: var(--user-bubble);
             align-self: flex-end;
-            border-bottom-right-radius: 5px;
-            box-shadow: 0 8px 20px rgba(0, 243, 255, 0.3);
+            border-bottom-right-radius: 2px;
+            color: #fff;
+            font-weight: 500;
         }
 
-        /* --- ANDROID SMART CONTROLS --- */
-        .control-pod {
-            background: #08080c;
-            padding: 15px;
-            display: flex; align-items: center; gap: 12px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: env(safe-area-inset-bottom, 25px);
+        /* --- 4. ANDROID SMART INPUT BAR --- */
+        .input-bar {
+            padding: 12px 15px;
+            background: #121212;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: env(safe-area-inset-bottom, 15px);
         }
 
-        .action-btn {
-            width: 50px; height: 50px; border-radius: 50%;
-            border: none; background: var(--glass);
-            color: white; font-size: 1.3rem;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            transition: 0.2s;
+        .input-wrapper {
+            flex: 1;
+            background: #1e1e1e;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            padding: 5px 15px;
+            border: 1px solid #333;
         }
 
-        .action-btn:active { transform: scale(0.9); background: rgba(255,255,255,0.1); }
-
-        .main-input {
-            flex: 1; background: #111116; border: 1.5px solid #222;
-            border-radius: 30px; padding: 14px 22px;
-            color: #fff; font-size: 1.1rem;
-            outline: none; transition: 0.3s;
+        #userInput {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 10px 0;
+            font-size: 1rem;
+            outline: none;
         }
 
-        .main-input:focus { border-color: var(--neon-blue); box-shadow: 0 0 15px rgba(0, 243, 255, 0.2); }
-
-        .send-pill {
-            background: var(--gold); color: #000;
-            font-weight: 900; padding: 12px 25px;
-            border-radius: 25px; border: none;
-            font-family: 'Orbitron'; font-size: 0.9rem;
+        .action-icon {
+            background: none;
+            border: none;
+            color: var(--text-dim);
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* --- BOOT OVERLAY --- */
-        #boot-up {
-            position: fixed; inset: 0; background: #000;
-            z-index: 9999; display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
-            transition: opacity 1s ease-out;
+        .send-btn {
+            width: 45px;
+            height: 45px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0, 229, 255, 0.3);
         }
 
-        .loader-ring {
-            width: 80px; height: 80px;
-            border: 4px solid #111; border-top-color: var(--gold);
-            border-radius: 50%; animation: spin 1s infinite linear;
+        /* --- 5. AI LOADING INDICATOR --- */
+        .typing {
+            font-size: 0.8rem;
+            color: var(--neon-blue);
+            margin-bottom: 5px;
+            display: none;
+        }
+
+        /* --- BOOT SCREEN (Optimized) --- */
+        #boot-loader {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pulse-core {
+            width: 70px;
+            height: 70px;
+            background: var(--neon-blue);
+            border-radius: 50%;
+            filter: blur(15px);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.8); opacity: 0.5; }
         }
     </style>
 </head>
 <body>
 
-<div id="boot-up">
-    <div class="loader-ring"></div>
-    <h2 style="margin-top: 25px; color: var(--gold); font-family: 'Orbitron';">SWARG-CORE ULTIMATE</h2>
-    <p id="boot-status" style="margin-top: 10px; color: var(--neon-blue);">Booting Sentient Logic...</p>
+<div id="boot-loader">
+    <div class="pulse-core"></div>
+    <h2 style="margin-top: 20px; font-family: 'Orbitron'; letter-spacing: 2px; color: var(--gold);">SWARG-CORE</h2>
 </div>
 
 <div class="header">
-    <div class="dev-brand">
-        DEVELOPED BY AMAR KUMAR <div class="verified-badge">✔</div>
+    <div class="dev-info">
+        DEVELOPED BY AMAR KUMAR <div class="blue-tick">✔</div>
     </div>
+    <div id="status-light" style="width: 10px; height: 10px; background: #00ff00; border-radius: 50%; box-shadow: 0 0 10px #00ff00;"></div>
 </div>
 
-<div class="visual-stage">
-    <div class="neural-orb" id="orb">
-        <div class="outer-ring"></div>
+<div id="chat-container">
     </div>
+
+<div id="typing-indicator" style="padding: 0 20px; display: none;">
+    <span class="typing">Swarg-AI is thinking...</span>
 </div>
 
-<div id="chat-window"></div>
-
-<div class="control-pod">
-    <button class="action-btn" onclick="document.getElementById('fileInp').click()">📎</button>
-    <input type="file" id="fileInp" hidden multiple accept="image/*,video/*">
+<div class="input-bar">
+    <button class="action-icon" onclick="document.getElementById('fileInp').click()">📎</button>
+    <input type="file" id="fileInp" hidden multiple accept="image/*">
     
-    <input type="text" id="userInput" placeholder="Ask anything, Boss..." onkeypress="if(event.key==='Enter') startAnalysis()">
+    <div class="input-wrapper">
+        <input type="text" id="userInput" placeholder="Ask anything, Boss..." autocomplete="off">
+        <button class="action-icon" id="micBtn">🎤</button>
+    </div>
     
-    <button class="action-btn" id="voiceBtn">🎤</button>
-    <button class="send-pill" onclick="startAnalysis()">SEND</button>
+    <button class="send-btn" id="sendBtn" onclick="processQuery()">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+        </svg>
+    </button>
 </div>
 
 <script>
-    /* ================================================
-       2. MASTER JAVASCRIPT & AI BRAIN (GEMINI INTEGRATION)
-       ================================================
-    */
+    /* --- JS MASTER ENGINE (GEMINI INTEGRATED) --- */
+    
+    // YOUR PROVIDED API KEY
+    const KEY = "AIzaSyDUVk7aSZ9TvsI9YsyuUXTarSMbhHReurk";
+    const URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${KEY}`;
 
-    // --- YOUR PRIVATE API KEY ---
-    const API_KEY = "AIzaSyDUVk7aSZ9TvsI9YsyuUXTarSMbhHReurk";
-    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
-
-    const chat = document.getElementById('chat-window');
+    const chat = document.getElementById('chat-container');
     const input = document.getElementById('userInput');
-    const orb = document.getElementById('orb');
+    const loader = document.getElementById('boot-loader');
+    const typing = document.getElementById('typing-indicator');
     let userName = "";
 
-    // --- BOOT SEQUENCE ---
+    // 1. FAST BOOT
     window.onload = () => {
-        const loadingTexts = ["Initializing Neural Grid...", "Syncing Amar's Database...", "Activating God Mode..."];
-        let idx = 0;
-        const loaderInt = setInterval(() => {
-            document.getElementById('boot-status').innerText = loadingTexts[idx];
-            idx++;
-            if(idx === loadingTexts.length) {
-                clearInterval(loaderInt);
-                setTimeout(() => {
-                    document.getElementById('boot-up').style.opacity = '0';
-                    setTimeout(() => document.getElementById('boot-up').remove(), 1000);
-                    botSpeak("Swarg-Core Ultimate is Online. I am a sentient AI developed by Amar Kumar. First, please tell me your name, Sir?");
-                }, 1000);
-            }
-        }, 1000);
+        setTimeout(() => {
+            loader.style.display = 'none';
+            addMessage("Swarg-Core Ultimate Online. Developed by Amar Kumar. Aapka naam kya hai?", 'ai');
+        }, 1200); // Only 1.2s delay for better UX
     };
 
-    function botSpeak(text) {
+    function addMessage(text, sender) {
         const div = document.createElement('div');
-        div.className = "bubble ai-message";
+        div.className = `msg ${sender}-msg`;
         div.innerText = text;
         chat.appendChild(div);
-        chat.scrollTo(0, chat.scrollHeight);
-        
-        // Premium Voice Engine
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'hi-IN';
-        utterance.pitch = 1.05;
-        window.speechSynthesis.speak(utterance);
+        chat.scrollTo({ top: chat.scrollHeight, behavior: 'smooth' });
+        if(sender === 'ai') speak(text);
     }
 
-    async function startAnalysis() {
-        const prompt = input.value.trim();
-        if(!prompt) return;
+    async function processQuery() {
+        const query = input.value.trim();
+        if(!query) return;
 
-        // Add user message
-        const userDiv = document.createElement('div');
-        userDiv.className = "bubble user-message";
-        userDiv.innerText = prompt;
-        chat.appendChild(userDiv);
+        addMessage(query, 'user');
         input.value = "";
-        chat.scrollTo(0, chat.scrollHeight);
-
-        // Core Reaction
-        orb.style.boxShadow = "0 0 100px #fff";
-
+        
         if(!userName) {
-            userName = prompt;
-            botSpeak(`Namaste ${userName}! I am Swarg-Core, Amar Kumar's most advanced creation. I can analyze files, jokes, or serious data. How can I help you today?`);
-            orb.style.boxShadow = "0 0 60px var(--neon-blue)";
+            userName = query;
+            addMessage(`Namaste ${userName}! Main Amar Kumar ka sentient AI hoon. Ab aap mujhse koi bhi sawal puch sakte hain, main real-time data nikal kar dunga.`, 'ai');
             return;
         }
 
-        // --- GEMINI REAL-TIME CALL ---
+        typing.style.display = 'block';
+
+        // 2. REAL GEMINI API CALL
         try {
-            const response = await fetch(API_URL, {
+            const response = await fetch(URL, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    contents: [{ parts: [{ text: prompt }] }]
+                    contents: [{ parts: [{ text: query }] }]
                 })
             });
 
             const data = await response.json();
-            const aiResponse = data.candidates[0].content.parts[0].text;
+            const aiReply = data.candidates[0].content.parts[0].text;
             
-            // Intelligence Behavior Check
-            if(prompt.toLowerCase().includes("joke") || prompt.toLowerCase().includes("funny")) {
-                orb.style.boxShadow = "0 0 80px #ffcc00";
-            } else {
-                orb.style.boxShadow = "0 0 60px var(--neon-blue)";
-            }
-
-            botSpeak(aiResponse);
-        } catch (error) {
-            botSpeak("I encountered a neural link error. Please check your connectivity, Boss.");
+            typing.style.display = 'none';
+            addMessage(aiReply, 'ai');
+        } catch (err) {
+            typing.style.display = 'none';
+            addMessage("Kshama karein, neural link mein kuch dikat hai. Amar Kumar se contact karein.", 'ai');
         }
     }
 
-    // --- ADVANCED VOICE ENGINE ---
-    const voiceBtn = document.getElementById('voiceBtn');
+    // 3. PREMIUM VOICE ENGINE
+    const micBtn = document.getElementById('micBtn');
     const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
     recognition.lang = 'hi-IN';
 
-    voiceBtn.onclick = () => {
+    micBtn.onclick = () => {
         recognition.start();
-        voiceBtn.style.color = "red";
+        micBtn.style.color = "red";
     };
 
     recognition.onresult = (e) => {
         input.value = e.results[0][0].transcript;
-        voiceBtn.style.color = "white";
-        startAnalysis();
+        micBtn.style.color = "var(--text-dim)";
+        processQuery();
     };
 
-    // --- FILE ANALYSIS SIMULATION ---
-    document.getElementById('fileInp').onchange = (e) => {
-        const files = e.target.files;
-        if(files.length > 0) {
-            botSpeak(`Analyzing ${files.length} file(s) with Amar's High-Level Vision System. Please wait...`);
-            // This is where Base64 conversion and Vision API call would go
-        }
+    function speak(text) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'hi-IN';
+        window.speechSynthesis.speak(utterance);
     }
+
+    // ENTER KEY SUPPORT
+    input.addEventListener("keypress", (e) => {
+        if(e.key === "Enter") processQuery();
+    });
 </script>
+
 </body>
-</html>
+                                                                </html>
+        
